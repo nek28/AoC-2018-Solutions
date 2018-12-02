@@ -1,6 +1,6 @@
 module Main where
 
-import qualified Data.IntSet as S
+import qualified Data.IntSet as Set
 
 --gets the input data string (lines of the form "[+-]NUM") and turns it into [Int]
 asDigits :: String -> [Int]
@@ -9,11 +9,11 @@ asDigits = (fmap (read :: String -> Int)) . words . filterPlus
 
 --solves the "first repeating frequency" problem on input
 fRInf :: [Int] -> Int
-fRInf ls = fRInf' (cycle ls) 0 (S.fromList [0])
+fRInf ls = fRInf' (cycle ls) 0 (Set.fromList [0])
     where fRInf' (x:xs) acc oldFreqs = let newFreq = acc + x
-                                       in if newFreq `S.member` oldFreqs
+                                       in if newFreq `Set.member` oldFreqs
                                           then newFreq
-                                          else fRInf' xs newFreq (S.insert newFreq oldFreqs)
+                                          else fRInf' xs newFreq (Set.insert newFreq oldFreqs)
 
 main :: IO()
 main = do
