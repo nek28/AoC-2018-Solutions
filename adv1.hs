@@ -8,6 +8,8 @@ asDigits = (fmap (read :: String -> Int)) . words . filterPlus
     where filterPlus = filter (/= '+')
 
 --solves the "first repeating frequency" problem on input
+--it computes the partial sums of the elements of (cycle ls)
+--and returns the first element that repeat in the Set of partial sums
 fRInf :: [Int] -> Int
 fRInf ls = fRInf' (cycle ls) 0 (Set.fromList [0])
     where fRInf' (x:xs) acc oldFreqs = let newFreq = acc + x
