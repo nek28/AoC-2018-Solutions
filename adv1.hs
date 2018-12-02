@@ -22,5 +22,6 @@ wrangle = sumit . asDigits
 main :: IO()
 main = do
     str <- readFile "data/1"
-    putStrLn $ "The final frequency is " ++ show (wrangle str)
-    putStrLn $ "The first repeating frequency is " ++ (show $ firstRepeat' . asDigits $ str)
+    let wrangled = asDigits str
+    putStrLn $ "The final frequency is " ++ show (sum wrangled)
+    putStrLn $ "The first repeating frequency is " ++ show (firstRepeat' wrangled)
