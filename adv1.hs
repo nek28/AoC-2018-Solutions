@@ -15,14 +15,11 @@ firstRepeat' ls = firstRepeat' ls 0 (S.fromList [0])
                                             then newV
                                             else firstRepeat' xs newV (S.insert newV partial)
 
-fpwrap :: [Int] -> Int
-fpwrap ls = firstRepeat ([0],cycle ls) 0
-
 wrangle :: String -> Int
 wrangle = sumit . asDigits
     where sumit = foldl' (+) 0
 
 main :: IO()
 main = do
-    str <- readFile "1"
+    str <- readFile "data/1"
     putStrLn $ show $ firstRepeat' . asDigits $ str
