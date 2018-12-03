@@ -2,7 +2,7 @@ module Main where
 
 import Data.List
 
-data ListZipper a = Zip [a] a [a]
+data ListZipper a = Zip ![a] a ![a]
     deriving (Show)
 
 instance Functor ListZipper where
