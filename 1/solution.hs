@@ -19,7 +19,7 @@ fRInf ls = fRInf' (cycle ls) 0 (Set.fromList [0])
 
 main :: IO()
 main = do
-    inp <- readFile "1/data"
+    inp <- readFile "data"
     let wrangled = asDigits inp
     putStrLn $ "The final frequency is " ++ show (sum wrangled)
     putStrLn $ "The first repeating frequency is " ++ show (fRInf wrangled)
