@@ -4,7 +4,7 @@ import qualified Data.IntSet as Set
 
 --gets the input data string (lines of the form "[+-]NUM") and turns it into [Int]
 asDigits :: String -> [Int]
-asDigits = (fmap (read :: String -> Int)) . words . filterPlus
+asDigits = (fmap read) . words . filterPlus
     where filterPlus = filter (/= '+')
 
 --solves the "first repeating frequency" problem on input
